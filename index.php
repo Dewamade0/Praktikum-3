@@ -1,25 +1,17 @@
 <?php
-// ============================================
-// HALAMAN KATALOG PRODUK
-// ============================================
+
 require_once __DIR__ . '/includes/data.php';
 require_once __DIR__ . '/includes/fungsi.php';
 
 $judulHalaman = "Katalog";
 $halamanAktif = "index.php";
 
-// Ringkasan toko
 $jumlahProduk = count($produk);
 $jumlahDiskon = hitungProdukDiskon($produk);
 $nilaiStok    = hitungNilaiStok($produk);
 
-// ⭐⭐ Tantangan 1 — Filter Kategori
-// Isi dengan "Atasan", "Bawahan", atau "Outerwear". Kosongkan ("") untuk menampilkan semua produk.
 $kategoriDipilih = "Atasan";
 
-// ⭐⭐ Tantangan 2 — Jumlah per Kategori
-// Pola: siapkan array kosong, lalu tambahkan 1 setiap kali kategori ditemukan.
-// Operator ?? memberi nilai 0 jika kunci kategori belum ada.
 $jumlahPerKategori = [];
 foreach ($produk as $item) {
     $jumlahPerKategori[$item["kategori"]] = ($jumlahPerKategori[$item["kategori"]] ?? 0) + 1;
@@ -57,11 +49,9 @@ require __DIR__ . '/includes/header.php';
     <p class="mb-4 text-sm text-slate-600">Menampilkan kategori: <strong><?= $kategoriDipilih ?></strong></p>
 <?php endif; ?>
 
-<!-- Daftar produk: satu kartu untuk setiap produk -->
 <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
     <?php foreach ($produk as $kode => $item): ?>
         <?php
-        // Lewati produk yang bukan kategori terpilih (jika filter diisi)
         if ($kategoriDipilih !== "" && $item["kategori"] !== $kategoriDipilih) {
             continue;
         }

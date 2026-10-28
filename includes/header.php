@@ -1,10 +1,8 @@
 <?php
-// Variabel $judulHalaman dan $halamanAktif diisi oleh halaman yang memanggil header ini.
-// Operator ?? memberi nilai cadangan jika variabel belum diisi.
+
 $judulHalaman = $judulHalaman ?? "Beranda";
 $halamanAktif = $halamanAktif ?? "";
 
-// Daftar menu navigasi: nama file => teks menu
 $menu = [
     "index.php"   => "Katalog",
     "pesanan.php" => "Pesanan",

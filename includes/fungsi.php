@@ -1,22 +1,16 @@
 <?php
-// ============================================
-// KUMPULAN FUNGSI TOKO
-// ============================================
 
-// Mengubah angka menjadi format Rupiah, contoh: 95000 -> "Rp 95.000"
 function formatRupiah(float $angka): string
 {
     return "Rp " . number_format($angka, 0, ',', '.');
 }
 
-// Menghitung harga setelah dipotong diskon (persen)
 function hargaSetelahDiskon(int $harga, int $persenDiskon = 0): int
 {
     $potongan = $harga * $persenDiskon / 100;
     return (int) round($harga - $potongan);
 }
 
-// Menentukan label stok
 function labelStok(int $stok): string
 {
     return match (true) {
@@ -26,7 +20,6 @@ function labelStok(int $stok): string
     };
 }
 
-// Menentukan warna badge Tailwind sesuai stok
 function warnaStok(int $stok): string
 {
     return match (true) {
@@ -36,7 +29,6 @@ function warnaStok(int $stok): string
     };
 }
 
-// Menghitung total nilai seluruh stok (harga setelah diskon x stok)
 function hitungNilaiStok(array $daftarProduk): int
 {
     $total = 0;
@@ -46,7 +38,6 @@ function hitungNilaiStok(array $daftarProduk): int
     return $total;
 }
 
-// Menghitung jumlah produk yang sedang diskon
 function hitungProdukDiskon(array $daftarProduk): int
 {
     $jumlah = 0;
@@ -58,7 +49,6 @@ function hitungProdukDiskon(array $daftarProduk): int
     return $jumlah;
 }
 
-// Diskon tambahan berdasarkan total belanja
 function diskonBelanja(int $totalBelanja): int
 {
     $persen = match (true) {

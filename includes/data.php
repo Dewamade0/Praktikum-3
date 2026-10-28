@@ -1,18 +1,13 @@
 <?php
-// ============================================
-// DATA TOKO (sementara disimpan di array)
-// Pada Pertemuan 7, data ini akan dipindah ke database MySQL.
-// ============================================
 
 $namaToko = "Lokal Wear Bali";
 
-// Array multidimensi: kode produk => data produk (array asosiatif)
 $produk = [
     "P001" => [
         "nama"     => "Kaos Oversize Cotton Combed 24s",
         "kategori" => "Atasan",
         "harga"    => 95000,
-        "diskon"   => 10, // dalam persen
+        "diskon"   => 10,
         "stok"     => 30,
         "ikon"     => "👕",
     ],
@@ -58,7 +53,6 @@ $produk = [
     ],
 ];
 
-// Contoh pesanan pelanggan: kode produk => jumlah yang dibeli
 $pesanan = [
     "P001" => 2,
     "P002" => 1,

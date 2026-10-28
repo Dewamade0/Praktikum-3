@@ -1,7 +1,5 @@
 <?php
-// ============================================
-// HALAMAN NOTA PESANAN
-// ============================================
+
 require_once __DIR__ . '/includes/data.php';
 require_once __DIR__ . '/includes/fungsi.php';
 
